@@ -41,6 +41,7 @@ Reference: https://docs.docker.com
 
 ## [Features](#table-of-content)
 
+- [Docker](https://www.docker.com/) 
 - [React](https://react.dev/)
 - [NodeJS](https://nodejs.org/en)
 - [Prisma](https://www.prisma.io/)
