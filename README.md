@@ -21,13 +21,15 @@ If you are getting a file sharing issue
 - They should work on Mac not sure about Windows
 
 Run the following commands
-$ grep "$USER" /etc/subuid >> /dev/null 2&>1 || (echo "$USER:100000:65536" | sudo tee -a /etc/subuid)
-$ grep "$USER" /etc/subgid >> /dev/null 2&>1 || (echo "$USER:100000:65536" | sudo tee -a /etc/subgid)
+
+- $ grep "$USER" /etc/subuid >> /dev/null 2&>1 || (echo "$USER:100000:65536" | sudo tee -a /etc/subuid)
+- $ grep "$USER" /etc/subgid >> /dev/null 2&>1 || (echo "$USER:100000:65536" | sudo tee -a /etc/subgid)
 
 To test if the commands worked run the following:
-Echo $USER
-Cat /etc/subuid
-Cat /etc/subgid
+
+- Echo $USER
+- cat /etc/subuid
+- cat /etc/subgid
 
 It should print out your name and a group of numbers depending on which command you run
 
