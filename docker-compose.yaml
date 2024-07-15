@@ -27,37 +27,28 @@ services:
       - 5433:5432
   server:
     container_name: server
-    build:
-      context: server/
-      dockerfile: Dockerfile
+    build: ./server
     environment:
       DATABASE_URL: "postgresql://postgres:postgres@database:5432/postgres?schema=public"
       TEST_DATABASE_URL: "postgresql://test:test@test_database:5432/test?schema=public"
-    expose:
-      - 5000
     ports:
       - 5000:5000
     depends_on:
       - db
       - test_db
     volumes:
-      - server/:/app
+      - ./server:/app
       - /app/node_modules
   client:
     container_name: client
-    build:
-      context: client/
-      dockerfile: Dockerfile
-    expose:
-      - 3000
+    build: ./client
     ports:
       - 3000:3000
     depends_on:
       - server
     volumes:
-      - client/:/app
+      - ./client:/app
       - /app/node_modules
-
-volumes:
-  server:
-  client:
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: ["npm", "start"]
