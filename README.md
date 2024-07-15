@@ -33,6 +33,8 @@ To test if the commands worked run the following:
 
 It should print out your name and a group of numbers depending on which command you run
 
+Note: "$" is used to show command don't include it when you are actually running the command
+
 Reference: https://docs.docker.com
 
 ---
