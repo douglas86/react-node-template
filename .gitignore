@@ -1,0 +1,9 @@
+#packages
+node_modules
+
+#enironment variables
+.env
+
+#IDE
+.idea
+.vscode

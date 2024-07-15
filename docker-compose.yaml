@@ -1,0 +1,54 @@
+services:
+  db:
+    image: postgres:16.3-alpine3.20
+    container_name: database
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    expose:
+      -   5432
+    ports:
+      -   5432:5432
+  test_db:
+    image: postgres:16.3-alpine3.20
+    container_name: test_database
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test
+    expose:
+      - 5433
+    ports:
+      - 5433:5432
+  server:
+    container_name: server
+    build: ./server
+    environment:
+      DATABASE_URL: "postgresql://postgres:postgres@database:5432/postgres?schema=public"
+      TEST_DATABASE_URL: "postgresql://test:test@test_database:5432/test?schema=public"
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+      - test_db
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+  client:
+    container_name: client
+    build: ./client
+    ports:
+      - 3000:3000
+    depends_on:
+      - server
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: ["npm", "start"]
