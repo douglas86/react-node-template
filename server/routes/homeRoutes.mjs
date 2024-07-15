@@ -3,6 +3,17 @@ import { prisma } from "../lib/prisma.mjs";
 
 const router = Router();
 
+/**
+ * @swagger
+ * /user:
+ *  get:
+ *      tags: [Users]
+ *      summary: Fetches users form database
+ *      description: Fetches all users from database
+ *      responses:
+ *        200:
+ *          description: Returns a mysteries string.
+ */
 router.get("/", async (req, res) => {
   const data = await prisma.user.findMany({});
 
