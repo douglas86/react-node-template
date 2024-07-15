@@ -13,7 +13,7 @@ This template is going to be used for node and react development
 
 - This template needs [docker](https://www.docker.com/), docker-compose and [node](https://nodejs.org/en) installed first
 - If you are wanting to see how-to setup, docker watch this [YouTube](https://www.youtube.com/watch?v=31ieHmcTUOk&list=PL4cUxeGkcC9hxjeEtdHFNYMtCpjNBm3h7) series
-- Once all the above has been set up run docker-compose up
+- Once all the above has been set up, run docker-compose up
 - Make sure that docker-desktop is up and running first
 
 If you are getting a file sharing issue
@@ -45,6 +45,7 @@ Reference: https://docs.docker.com
 - [React](https://react.dev/)
 - [NodeJS](https://nodejs.org/en)
 - [Prisma](https://www.prisma.io/)
+- [SwaggerUI](https://www.npmjs.com/package/swagger-ui-express)
 
 ---
 
@@ -57,6 +58,8 @@ Reference: https://docs.docker.com
 - Or post 5000 for express
 - You can also see the database by using the [Prisma Studio](https://www.prisma.io/docs/orm/tools/prisma-studio)
 - To run Prisma Studio type the command npx prisma studio
+- If you want to see all endpoints and test them without using prisma
+- You can go to the endpoint /api-docs
 
 ---
 
