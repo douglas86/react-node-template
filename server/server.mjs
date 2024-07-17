@@ -3,9 +3,9 @@ import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
 
-import homeRoutes from "./routes/homeRoutes.mjs";
-import userRoutes from "./routes/userRoutes.mjs";
-import customerRoutes from "./routes/customerRoutes.mjs";
+import homeRoutes from "./src/routes/homeRoutes.mjs";
+import userRoutes from "./src/routes/userRoutes.mjs";
+import customerRoutes from "./src/routes/customerRoutes.mjs";
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -57,7 +57,7 @@ const options = {
     ],
   },
   path: {},
-  apis: ["./routes/*.mjs"],
+  apis: ["./src/routes/*.mjs"],
 };
 
 const swaggerSpec = swaggerJsDoc(options);
