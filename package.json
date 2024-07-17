@@ -4,7 +4,9 @@
   "description": "This template is going to be used for node and react development",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx cypress run",
+    "cypress": "npx cypress open",
+    "prisma": "cd server && npx prisma studio",
     "start": "concurrently \"cd client && npm start\" \"cd server && npm start\" "
   },
   "keywords": [],

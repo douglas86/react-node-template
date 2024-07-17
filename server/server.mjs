@@ -50,7 +50,7 @@ app.use("/user", homeRoutes);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.json("Hello World");
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
