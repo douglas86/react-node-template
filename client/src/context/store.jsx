@@ -2,19 +2,21 @@ import { createContext, useMemo, useReducer } from "react";
 import { rootReducers } from "./rootReducers";
 
 const initialState = {
-  userReducers: "None",
+  userReducers: {
+    user: "None",
+  },
   dataReducers: {},
-  formsReducers: {},
+  formReducers: {},
 };
 
 export const Context = createContext(initialState);
 
 const init = (initialState) => {
-  const { userReducers, dataReducers, formsReducers } = initialState;
+  const { userReducers, dataReducers, formReducers } = initialState;
 
   return {
     userReducers,
-    formsReducers,
+    formReducers,
     dataReducers,
   };
 };
