@@ -21,8 +21,6 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Routes
-
 const options = {
   definitions: {
     openapi: "3.0.0",
