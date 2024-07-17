@@ -5,6 +5,7 @@ import swaggerJsDoc from "swagger-jsdoc";
 
 import homeRoutes from "./routes/homeRoutes.mjs";
 import userRoutes from "./routes/userRoutes.mjs";
+import customerRoutes from "./routes/customerRoutes.mjs";
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -64,6 +65,7 @@ const swaggerSpec = swaggerJsDoc(options);
 // routes
 app.use("/", homeRoutes);
 app.use("/user", userRoutes);
+app.use("/customer", customerRoutes);
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 

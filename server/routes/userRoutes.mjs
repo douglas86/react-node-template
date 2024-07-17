@@ -3,19 +3,18 @@ import { prisma } from "../lib/prisma.mjs";
 
 const router = Router();
 
+// user model
 /**
  * @swagger
  * definitions:
  *    User:
  *      type: object
  *      required:
- *        - id
  *        - title
- *        - createdAt
  *      properties:
  *        id:
  *           type: integer
- *           description: The ID of the user
+ *           description: The ID is auto generated
  *           example: 1
  *        title:
  *           type: string
@@ -23,7 +22,7 @@ const router = Router();
  *           example: John
  *        createdAt:
  *           type: date
- *           description: Uses the date of when entry was created
+ *           description: The createdAt is auto generated based on current date
  *           example: 2024-07-15T16:00:30.706Z
  */
 
@@ -44,13 +43,11 @@ const router = Router();
  *                items:
  *                  $ref: "#/definitions/User"
  */
-router.get("/", async (req, res) => {
+router.route("/").get(async (req, res) => {
   const data = await prisma.user.findMany({});
 
-  console.log("data", data);
-
   res.status(200).json({
-    message: "Welcome to the home page",
+    message: "You have successfully fetched users data",
     status: "success",
     statusCode: 200,
     data,
