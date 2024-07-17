@@ -47,6 +47,7 @@ Reference: https://docs.docker.com
 - [Prisma](https://www.prisma.io/)
 - [SwaggerUI](https://www.npmjs.com/package/swagger-ui-express)
 - [Cypress](https://www.cypress.io/)
+- State store has been implemented
 
 ---
 
