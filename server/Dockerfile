@@ -1,5 +1,7 @@
 FROM node:22.4-alpine3.19
 
+RUN npm install -g cypress
+
 WORKDIR /app
 
 COPY package*.json .
