@@ -46,6 +46,7 @@ Reference: https://docs.docker.com
 - [NodeJS](https://nodejs.org/en)
 - [Prisma](https://www.prisma.io/)
 - [SwaggerUI](https://www.npmjs.com/package/swagger-ui-express)
+- [Cypress](https://www.cypress.io/)
 
 ---
 
@@ -57,9 +58,9 @@ Reference: https://docs.docker.com
 - Once it is finished, you should be able to go to port 3000 for React
 - Or post 5000 for express
 - You can also see the database by using the [Prisma Studio](https://www.prisma.io/docs/orm/tools/prisma-studio)
-- To run Prisma Studio type the command npx prisma studio
+- To run Prisma Studio type the command npm run prisma
 - If you want to see all endpoints and test them without using prisma
-- You can go to the endpoint /api-docs
+- You can go to the endpoint localhost:5000/api-docs
 
 ---
 

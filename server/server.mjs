@@ -3,12 +3,21 @@ import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
 
-import homeRoutes from "./routes/homeRoutes.mjs";
+import homeRoutes from "./src/routes/homeRoutes.mjs";
+import userRoutes from "./src/routes/userRoutes.mjs";
+import customerRoutes from "./src/routes/customerRoutes.mjs";
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+    allowedHeaders: true,
+    allowHeaders: true,
+  }),
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -24,8 +33,16 @@ const options = {
   },
   explorer: true,
   swaggerDefinition: {
-    description: "This is a sample Pet store server",
+    info: {
+      title: "Swagger API",
+      description: "Swagger API documentation",
+      contact: {
+        name: "Swagger API",
+      },
+    },
     version: "1.0",
+    host: "localhost:5000",
+    basePath: "/",
   },
   swaggerOptions: {
     urls: [
@@ -40,17 +57,16 @@ const options = {
     ],
   },
   path: {},
-  apis: ["./routes/*.mjs"],
+  apis: ["./src/routes/*.mjs"],
 };
 
 const swaggerSpec = swaggerJsDoc(options);
 
-app.use("/user", homeRoutes);
+// routes
+app.use("/", homeRoutes);
+app.use("/user", userRoutes);
+app.use("/customer", customerRoutes);
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
